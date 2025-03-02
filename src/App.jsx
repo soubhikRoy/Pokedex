@@ -12,6 +12,12 @@ function App() {
     setInputValue(e.target.value)
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      setPokemonName(inputValue)
+    }
+  }
+
   const handleSearchClick = () => {
     setPokemonName(inputValue)
   }
@@ -19,7 +25,7 @@ function App() {
   return (
     <div>
       <h1>Pokédex</h1>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <input type="text" value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown}/>
       <button onClick={handleSearchClick}>Search Pokémon!</button>
       <Pokedex pokemonName={pokemonName} />
     </div>
