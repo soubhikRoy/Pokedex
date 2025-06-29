@@ -1,6 +1,7 @@
 import React from 'react';
 import { map, isUndefined, isNil } from 'lodash';
 import { useGetPokemonByNameQuery } from '../../services/pokeApi';
+import PokemonDetails from '../PokemonDetails';
 
 
 function Pokedex({ pokemonName }) {
@@ -30,15 +31,19 @@ function Pokedex({ pokemonName }) {
     }, [data, error]);
     return (
         <div>
-            {!isNil(pokemonDetails) && map(pokemonDetails, (value, key) => (
-                <div key={key}>
-                    {
-                        key === "sprites" ? (
-                            <img src={value} alt={pokemonDetails.name} />
-                        ) : <><strong>{key}</strong>: {value}</>
-                    }
-                </div>
-            ))}
+            {
+                !isUndefined(pokemonDetails) && !isNil(pokemonDetails) &&
+                <PokemonDetails
+                    sprites={pokemonDetails.sprites}
+                    name={pokemonDetails.name}
+                    height={pokemonDetails.height}
+                    weight={pokemonDetails.weight}
+                    type={pokemonDetails.type}
+                    abilities={pokemonDetails.abilities}
+                    moves={pokemonDetails.moves}
+                />
+            }
+
         </div>
     );
 }
