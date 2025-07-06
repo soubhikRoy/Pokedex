@@ -14,6 +14,8 @@ function Home() {
                     <li><Link to="/form">Simple form</Link></li>
                     <li><Link to="/products">Products Gallery</Link></li>
                     <li><Link to="/demo">Demo</Link></li>
+                    <li><Link to="/multiasync">Multiple Async</Link></li>
+                    <li><Link to="/customdropdown">CustomDropdown</Link></li>
                 </ul>
             </nav>
         </div>

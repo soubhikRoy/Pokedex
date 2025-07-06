@@ -9,6 +9,8 @@ import SimpleForm from './components/form/SimpleForm'
 import Home from './components/home/Home'
 import ProductsGallery from './components/productsgallery/ProductsGallery'
 import Demo from './components/demo/Demo'
+import MultiAsync from './components/demo/MultiAsync'
+import CustomDropdown from './components/demo/CustomDropdown'
 
 function App() {
   const router = createBrowserRouter([
@@ -50,6 +52,16 @@ function App() {
     {
       path: '/demo',
       element: <Demo />,
+      errorElement: <div>404 not found</div>
+    },
+    {
+      path: '/multiasync',
+      element: <MultiAsync />,
+      errorElement: <div>404 not found</div>
+    },
+    {
+      path: '/customdropdown',
+      element: <CustomDropdown />,
       errorElement: <div>404 not found</div>
     }
   ])

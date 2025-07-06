@@ -42,19 +42,23 @@ function ProductsGallery() {
         });
     }
     const onSearchInputChange = (targetVal: string) => {
-        setSearchValue(targetVal)
+        setSearchValue(targetVal);
+        if (targetVal.trim() === "") {
+            setFilteredList([]); // Clear the filtered list when input is empty
+            return;
+        }
         const filteredList = productList.filter(item => {
-            return item.title.toLowerCase().search(targetVal.toLowerCase()) !== -1
-        })
-        setFilteredList(filteredList)
-    }
+            return item.title.toLowerCase().search(targetVal.toLowerCase()) !== -1;
+        });
+        setFilteredList(filteredList);
+    };
     if (isLoading) return <>Loading...</>
     if (isError) return <>Something went wrong!</>
     return (
         <>
             <h1>Products Gallery</h1>
             <h2>Cart: {cart.totalamount}</h2>
-            <input type="text" onChange={(e) => onSearchInputChange(e.target.value)} value={searchValue} />
+            <input id="search-input" type="text" onChange={(e) => onSearchInputChange(e.target.value)} value={searchValue} />
             {
                 filteredList.map((item, index) => {
                     return (

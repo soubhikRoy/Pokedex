@@ -63,8 +63,14 @@ function Todos() {
         <div style={styles.main}>
             <h1 style={styles.title}>Add Todo lists!</h1>
             <div>
-                Enter Todos: <input type="text" value={input} onChange={(e) => onInputFieldChange(e)} />
-                <button onClick={() => addTodoList()}>
+                Enter Todos:
+                <input
+                    type="text"
+                    data-testid='todos-input-field'
+                    value={input}
+                    onChange={(e) => onInputFieldChange(e)}
+                />
+                <button onClick={() => addTodoList()} data-testid='add-button'>
                     Add to list
                 </button>
             </div>
